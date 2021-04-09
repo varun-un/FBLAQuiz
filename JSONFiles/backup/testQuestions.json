@@ -1,0 +1,516 @@
+{
+	"mcq":[
+		{
+			"number": 1,
+			"question": "What does FBLA stand for?",
+			"choices": [
+				"Future Business Leaders of America",
+    			"Future Businesses Leading America",
+    			"First Bureau of Leadership Astuteness",
+    			"First Bureau of Luminary Abilities"
+    		],
+    		"answer": "Future Business Leaders of America"
+		},
+		{
+			"number": 2,
+			"question": "What is the first line of the FBLA creed?",
+			"choices": [
+				"I believe education is the right of every person",
+    			"I want every person to earn a living at a useful occupation",
+    			"We want to better the world through education",
+    			"Learning the skills to succeed in the world is vital"
+    		],
+    		"answer": "I believe education is the right of every person"
+		},
+		{
+			"number": 3,
+			"question": "Where was the concept of FBLA developed?",
+			"choices": [
+				"Columbia University",
+   	 			"Massachusetts Institute of Technology",
+    			"Yale University",
+    			"Penn State University"
+    		],
+    		"answer": "Columbia University"
+		},
+		{
+			"number": 4,
+			"question": "Who is credited as the founder of FBLA?",
+			"choices": [
+				"Hamden L. Forkner",
+    			"Edward D. Miller",
+    			"Thomas Edison",
+    			"John D. Rockefeller"
+    		],
+    		"answer": "Hamden L. Forkner"
+		},
+		{
+			"number": 5,
+			"question": "In what year was the first high school FBLA chapter chartered?",
+			"choices": [
+				"1942",
+    			"1939",
+    			"1953",
+    			"1966"
+    		],
+    		"answer": "1942"
+		},
+		{
+			"number": 6,
+			"question": "Where is FBLA currently headquartered?",
+			"choices": [
+				"Reston, Virginia",
+    			"New York City, New York",
+    			"Boston, Massachusetts",
+    			"Raleigh, North Carolina"
+    		],
+    		"answer": "Reston, Virginia"
+		},
+		{
+			"number": 7,
+			"question": "What is the first line of the FBLA Code of Ethics?",
+			"choices": [
+				"I will be honest and sincere",
+    			"I will work the hardest I can",
+    			"I will help others succeed",
+    			"I will follow the rules and regulations of FBLA and my school"
+    		],
+    		"answer": "I will be honest and sincere"
+		},
+		{
+			"number": 8,
+			"question": "Which of the following does FBLA use as the standard for its Parliamentary Procedure?",
+			"choices": [
+				"Robert’s Rules of Order",
+    			"Stanley’s Standards for Meetings",
+    			"Larry’s Laws for Proceedings",
+    			"Gary’s Guidelines for Order"
+    		],
+    		"answer": "Robert’s Rules of Order"
+		},
+		{
+			"number": 9,
+			"question": "What is the flagship publication for FBLA and FBLA-Middle Level students and advisers?",
+			"choices": [
+				"Tomorrow’s Business Leader",
+    			"Today’s Business Leader",
+    			"Future Entrepreneurs",
+    			"Future Leaders Magazine"
+    		],
+    		"answer": "Tomorrow’s Business Leader"
+		},
+		{
+			"number": 10,
+			"question": "Which of the following FBLA administrative regions includes non-US chapters?",
+			"choices": [
+				"Eastern",
+    			"Western",
+    			"Midwestern",
+    			"Deep Valley"
+    		],
+    		"answer": "Eastern"
+		},
+		{
+			"number": 11,
+			"question": "What was the Professional Division of FBLA originally called?",
+			"choices": [
+				"Alumni Division",
+    			"Adult Division",
+    			"Business Sector",
+    			"Professional Sector of Business"
+    		],
+    		"answer": "Alumni Division"
+		},
+		{
+			"number": 12,
+			"question": "What is the two-day seminar that is held in conjunction with the National Leadership Conference by FBLA?",
+			"choices": [
+				"Institute for Leaders",
+    			"Businesspeople Honorary Conference",
+    			"Leadership Seminar for Business",
+    			"Innovative Young Minds Conference"
+    		],
+    		"answer": "Institute for Leaders"
+		}
+	],
+	
+	"Multiple Select":[
+		{
+			"number": 1,
+			"question": "Which of the following are objective tests in FBLA?",
+			"choices": [
+				"Business Communications",
+				"Sports & Entertainment Management",
+				"Executive Responsibilities",
+				"Corporate Management",
+				"Personal Finance"
+    		],
+    		"answer": [
+    			"Business Communications",
+				"Sports & Entertainment Management",
+				"Personal Finance"
+    		]
+		},
+		{
+			"number": 2,
+			"question": "Which of the following are NOT Competitive Events in FBLA?",
+			"choices": [
+				"Letter Writing",
+				"Product Production",
+				"Business Ethics",
+				"E-Business",
+				"3-D Animation"
+    		],
+    		"answer": [
+    			"Letter Writing",
+				"Product Production"
+    		]
+		},
+		{
+			"number": 3,
+			"question": "Which of the following are official colors of FBLA?",
+			"choices": [
+				"Blue",
+				"Gold",
+				"Red",
+				"Magenta",
+				"White"
+    		],
+    		"answer": [
+    			"Blue",
+				"Gold"
+    		]
+		},
+		{
+			"number": 4,
+			"question": "Which of the following are conferences which FBLA conducts?",
+			"choices": [
+				"State Leadership Conference",
+				"National Leadership Conference",
+				"National Business Leaders Conference",
+				"National Fall Leadership Conference",
+				"Official Prospective Business Leaders Conference"
+    		],
+    		"answer": [
+    			"National Leadership Conference",
+				"National Fall Leadership Conference"
+    		]
+		},
+		{
+			"number": 5,
+			"question": "Which of the following are guidelines listed by the FBLA for social networking on behalf of FBLA chapters?",
+			"choices": [
+				"Be Secure",
+				"Be Responsible",
+				"Be Transparent",
+				"Be Fair",
+				"Be Intelligent"
+    		],
+    		"answer": [
+    			"Be Secure",
+				"Be Responsible",
+				"Be Transparent",
+				"Be Fair"
+    		]
+		},
+		{
+			"number": 6,
+			"question": "Which of the following are real administrative regions within FBLA?",
+			"choices": [
+				"Mountain Plains",
+				"Western",
+				"Northeastern",
+				"South Central",
+				"Midwestern"
+    		],
+    		"answer": [
+    			"Mountain Plains",
+				"Western"
+    		]
+		},
+		{
+			"number": 7,
+			"question": "Which of the following are words on the FBLA-PBL Crest?",
+			"choices": [
+				"Service",
+				"Education",
+				"Progress",
+				"Mentality",
+				"Leadership"
+    		],
+    		"answer": [
+    			"Service",
+				"Education",
+				"Progress"
+    		]
+		},
+		{
+			"number": 8,
+			"question": "Which of the following are NOT levels of the FBLA Business Achievement Awards?",
+			"choices": [
+				"America",
+				"Business",
+				"Entrepreneur",
+				"Leader",
+				"Pioneer"
+    		],
+    		"answer": [
+    			"Entrepreneur",
+				"Pioneer"
+    		]
+		},
+		{
+			"number": 9,
+			"question": "Which of the following are the core activities on which all levels of the Business Achievement Awards are based off of, as outlined by FBLA?",
+			"choices": [
+				"Service",
+				"Education",
+				"Progress",
+				"Greediness",
+				"Self-determination"
+    		],
+    		"answer": [
+    			"Service",
+				"Education",
+				"Progress"
+    		]
+		},
+		{
+			"number": 10,
+			"question": "Which of the following are NOT official FBLA fundraising partners?",
+			"choices": [
+				"Chipotle",
+				"DormCo.com",
+				"Country Meats",
+				"Sam’s Club",
+				"Baja Fresh"
+    		],
+    		"answer": [
+    			"Chipotle",
+				"Sam’s Club",
+				"Baja Fresh"
+    		]
+		},
+		{
+			"number": 11,
+			"question": "Which of the following are NOT types of Competitive Events under FBLA?",
+			"choices": [
+				"Objective Tests",
+				"Demonstration Events",
+				"Speech Events",
+				"Essay Writings",
+				"Performing Arts Events"
+    		],
+    		"answer": [
+    			"Essay Writings",
+				"Performing Arts Events"
+    		]
+		},
+		{
+			"number": 12,
+			"question": "For competitive events in which it is required, according to the FBLA Format Guide, which of the following are acceptable fonts?",
+			"choices": [
+				"Times New Roman",
+				"Comic Sans",
+				"Arial",
+				"Calibri",
+				"Wingdings"
+    		],
+    		"answer": [
+    			"Arial",
+				"Calibri",
+				"Times New Roman"
+    		]
+		},
+	],
+	
+	"Fill-in Blank": [
+		{
+			"number": 1,
+			"question": "How many FBLA administrative regions are there?",
+			"answer": "5"
+		},
+		{
+			"number": 2,
+			"question": "How many national officers are there in FBLA?",
+			"answer": "9"
+		},
+		{
+			"number": 3,
+			"question": "How many voting delegates can a local FBLA chapter of 40 members send to the National Leadership Conference?",
+			"answer": "2"
+		},
+		{
+			"number": 4,
+			"question": "How many winners are there for the National Technical Honor Society Scholarship?",
+			"answer": "2"
+		},
+		{
+			"number": 5,
+			"question": "How many goals have the FBLA-PBL explicitly outlined for the organization?",
+			"answer": "9"
+		},
+		{
+			"number": 6,
+			"question": "What is the minimum number of members required for an FBLA chapter?",
+			"answer": "5"
+		},
+		{
+			"number": 7,
+			"question": "How many different articles are there in the FBLA Bylaws?",
+			"answer": "13"
+		},
+		{
+			"number": 8,
+			"question": "In what year was the idea of FBLA first thought of?",
+			"answer": "1937"
+		},
+		{
+			"number": 9,
+			"question": "What Greek letter does the P in FBLA-PBL stand for?",
+			"answer": "phi"
+		},
+		{
+			"number": 10,
+			"question": "In which U.S. state was the first FBLA state chapter established?",
+			"answer": "iowa"
+		},
+		{
+			"number": 11,
+			"question": "In which month, every year, is the National FBLA-PBL Week?",
+			"answer": "february"
+		},
+		{
+			"number": 12,
+			"question": "What is the membership theme of FBLA for the 2020-2021 year?",
+			"answer": "aspire"
+		}
+	],
+	
+	"True or False": [
+		{
+			"number": 1,
+			"question": "FBLA has an international presence in China.",
+			"answer": "true"
+		},
+		{
+			"number": 2,
+			"question": "FBLA has an international presence in Haiti.",
+			"answer": "true"
+		},
+		{
+			"number": 3,
+			"question": "FBLA has an international presence in Vietnam.",
+			"answer": "false"
+		},
+		{
+			"number": 4,
+			"question": "Jean Buckley is the current president of the FBLA national association.",
+			"answer": "false"
+		},
+		{
+			"number": 5,
+			"question": "FBLA sells bow ties as a part of its official merchandise.",
+			"answer": "true"
+		},
+		{
+			"number": 6,
+			"question": "A collared dress shirt with a necktie is acceptable attire for FBLA conferences.",
+			"answer": "true"
+		},
+		{
+			"number": 7,
+			"question": "Swimwear is acceptable attire for FBLA conferences.",
+			"answer": "false"
+		},
+		{
+			"number": 8,
+			"question": "A hat is considered appropriate attire for FBLA conferences.",
+			"answer": "false"
+		},
+		{
+			"number": 9,
+			"question": "The PBL part of FBLA-PBL is an acronym representing Greek letters.",
+			"answer": "true"
+		},
+		{
+			"number": 10,
+			"question": "FBLA is the largest career student business organization in the world.",
+			"answer": "true"
+		},
+		{
+			"number": 11,
+			"question": "The FBLA National Center mortgage was retired in 2010.",
+			"answer": "false"
+		},
+		{
+			"number": 12,
+			"question": "Edward D. Miller was the first full-time executive director of FBLA-PBL.",
+			"answer": "true"
+		}
+	],
+	
+	"Matching": [
+		{
+			"number": 1,
+			"question": "Match the following FBLA divisions to their respective school levels",
+			"groupA": ["FBLA", "FBLA-ML", "PBL"],
+			"groupB": ["High School", "Middle School", "College"]
+		},
+		{
+			"number": 2,
+			"question": "Match the following scholarships FBLA helps to offer with their respective winnings",
+			"groupA": ["FBLA Distinguished Business Leader Scholarship", "Johnson & Wales University Scholarship", "National Technical Honor Society Scholarship"],
+			"groupB": ["$500 per winner", "up to full tuition for winners", "$1,000 per winner"]
+		},
+		{
+			"number": 3,
+			"question": "Match the following FBLA divisions to their respective founding year",
+			"groupA": ["FBLA-ML", "PBL", "PD"],
+			"groupB": ["formed in 1994", "formed in 1958", "formed in 1979"]
+		},
+		{
+			"number": 4,
+			"question": "Match the following levels of the FBLA Business Achievement Awards to when they would be presented to their respective winners",
+			"groupA": ["Future", "Leader", "America"],
+			"groupB": ["Presented at a local awards ceremony or FBLA event by advisor", "Presented at State Leadership Conference", "Presented at National Leadership Conference"]
+		},
+		{
+			"number": 5,
+			"question": "Match the following months to their respective events or importance",
+			"groupA": ["February", "November", "October"],
+			"groupB": ["National FBLA-PBL Week", "Prematurity Awareness Month", "National Fall Leadership Conference"]
+		},
+		{
+			"number": 6,
+			"question": "Match the following dates to their importance",
+			"groupA": ["November 15", "November 17", "March 1"],
+			"groupB": ["American Enterprise Day", "March of Dimes World Prematurity Day", "Date by which dues must be received for competition eligibility"]
+		},
+		{
+			"number": 7,
+			"question": "Match the following FBLA Community Service Awards to their required number of hours",
+			"groupA": ["CSA Community", "CSA Service", "CSA Achievement"],
+			"groupB": ["50 hours", "200 hours", "500 hours"]
+		},
+		{
+			"number": 8,
+			"question": "Match the following FBLA Chapter programs to each of their respective focus",
+			"groupA": ["Super Sweeps", "Non-Stop November", "Action Awareness"],
+			"groupB": ["recruitment and retention", "membership involvement", "FBLA awareness"]
+		},
+		{
+			"number": 9,
+			"question": "Match the following officer roles to their responsibilities in FBLA",
+			"groupA": ["President", "Secretary", "Treasurer"],
+			"groupB": ["preside over all meetings", "keep an accurate membership and attendance roll", "receive and act as custodian of chapter funds"]
+		},
+		{
+			"number": 10,
+			"question": "Match the following people to their importance within FBLA",
+			"groupA": ["Dorothy L. Travis", "Hollis and Kitty Guy", "Jean Buckley"],
+			"groupB": ["who the Parliamentary Procedure Event is named after", "who the Gold Seal Award of Merit is named after", "former president of the national FBLA-PBL office"]
+		}
+	]
+	
+}
