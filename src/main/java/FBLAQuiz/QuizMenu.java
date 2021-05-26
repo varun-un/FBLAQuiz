@@ -60,7 +60,7 @@ import org.json.simple.parser.ParseException;
 public class QuizMenu extends MouseAdapter implements ActionListener{
 
 	/** Global parser used to parse the JSON databases */
-	public static JSONParser parser = new JSONParser();
+	public static JSONParser PARSER = new JSONParser();
 	
 	//----------------Instance Variables----------
 	/** The JFrame on which the program will display its GUI */
@@ -221,11 +221,11 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		//Parse the score reports database
 		JSONArray database;
 		try {
-			database = (JSONArray)(parser.parse(new FileReader("./JSONfiles/scoreReports.json")));
+			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/scoreReports.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
-			database = (JSONArray)(parser.parse(new FileReader("./JSONfiles/backup/scoreReports.json")));
+			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/backup/scoreReports.json")));
 		}
 		//an ArrayList for all of the report buttons
 		ArrayList<JButton> buttonsList = new ArrayList<JButton>();
@@ -450,11 +450,11 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		//Parse the score reports database
 		JSONArray database;
 		try {
-			database = (JSONArray)(parser.parse(new FileReader("./JSONfiles/scoreReports.json")));
+			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/scoreReports.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
-			database = (JSONArray)(parser.parse(new FileReader("./JSONfiles/backup/scoreReports.json")));
+			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/backup/scoreReports.json")));
 		}
 		
 		//get the scores for the data points
@@ -776,12 +776,12 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		//read and store the database
 		JSONObject database = null;
 		try {
-			database = (JSONObject)(parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+			database = (JSONObject)(PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
 			try {
-				database = (JSONObject)(parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+				database = (JSONObject)(PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 			} catch (IOException | ParseException e1) {}
 		}
 		
@@ -1023,12 +1023,12 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		//read the password from the database
 		JSONObject database = null;
 		try {
-			database = (JSONObject)(parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+			database = (JSONObject)(PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 		} 
 		catch (IOException | ParseException e1) {
 			//Use backup database if exception occurs
 			try {
-				database = (JSONObject)(parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+				database = (JSONObject)(PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 			} catch (IOException | ParseException e2) {}
 		}
 		String correctPass = (String) database.get("password");
@@ -1137,12 +1137,12 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 					//read the database
 					JSONObject database = null;
 					try {
-						database = (JSONObject)(parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+						database = (JSONObject)(PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 					} 
 					catch (IOException | ParseException e1) {
 						//Use backup database if exception occurs
 						try {
-							database = (JSONObject)(parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+							database = (JSONObject)(PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 						} catch (IOException | ParseException e2) {}
 					}
 					

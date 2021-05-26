@@ -39,7 +39,7 @@ import org.json.simple.parser.ParseException;
  * @author Varun Unnithan
  *
  */
-public class FillInBlank extends MouseAdapter implements ActionListener, CaretListener{
+public class FillInBlank extends MouseAdapter implements ActionListener, CaretListener, Question{
 		
 	//----------------Instance variables----------------
 	//Question variables
@@ -81,11 +81,11 @@ public class FillInBlank extends MouseAdapter implements ActionListener, CaretLi
 		//read and store an array of all multiple choice questions
 		JSONObject database;
 		try {
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 		}
 		JSONArray fillInArray = (JSONArray) database.get("Fill-in Blank");
 		
@@ -102,19 +102,11 @@ public class FillInBlank extends MouseAdapter implements ActionListener, CaretLi
 	
 	
 	//------------------Methods------------------
-	/**
-	 * Method to get the question string
-	 * @return The question as a String
-	 */
 	public String getQuestion() {
 		return question;
 	}
 	
 	
-	/**
-	 * Method to see if a question is flagged
-	 * @return Boolean of if a question is flagged
-	 */
 	public boolean isFlagged() {
 		return flagged;
 	}
@@ -129,10 +121,6 @@ public class FillInBlank extends MouseAdapter implements ActionListener, CaretLi
 	}
 	
 	
-	/**
-	 * Mathod to get this question's number
-	 * @return The question number of this question in the quiz
-	 */
 	public int getQuizQuestionNumber() {
 		return quizQuestionNumber;
 	}
@@ -147,19 +135,11 @@ public class FillInBlank extends MouseAdapter implements ActionListener, CaretLi
 	}
 	
 	
-	/**
-	 * Checks if the user has inputted an answer
-	 * @return Boolean value of whether user has answered the question or not
-	 */
 	public boolean isAnswered() {
 		return !userAnswer.equals("");
 	}
 	
-	
-	/**
-	 * Checks if the user input is correct
-	 * @return Boolean value of whether user was right or not
-	 */
+
 	public boolean isCorrect() {
 		return userAnswer.toLowerCase().trim().equals(answer.toLowerCase());
 	}
@@ -184,12 +164,7 @@ public class FillInBlank extends MouseAdapter implements ActionListener, CaretLi
 	    return true;
 	}
 	
-	/**
-	 * Creates a JPanel which includes GUI components to add to a JFrame to ask a fill-in-the-blank question
-	 * @return JPanel object to be added to the JFrame to pose a fill-in-the-blank question
-	 * @param questionNumber The question's number within the quiz
-	 * @param frame The JFrame upon which this JPanel will be added
-	 */
+
 	public JPanel createPanel(int questionNumber, JFrame frame) {
 		
 		//creates the JPanels for the user input, question, and the overall container

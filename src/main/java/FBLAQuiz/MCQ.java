@@ -36,7 +36,7 @@ import org.json.simple.parser.ParseException;
  * @author Varun Unnithan
  *
  */
-public class MCQ extends MouseAdapter implements ActionListener{
+public class MCQ extends MouseAdapter implements ActionListener, Question{
 	
 	//----------------Instance variables----------------
 	//Question variables
@@ -88,11 +88,11 @@ public class MCQ extends MouseAdapter implements ActionListener{
 		//parse the database and save it to a JSONObject
 		JSONObject database;
 		try {
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 		}
 		//get the array for all multiple choice questions from the database
 		JSONArray mcqArray = (JSONArray) database.get("mcq");
@@ -120,28 +120,16 @@ public class MCQ extends MouseAdapter implements ActionListener{
 	
 	
 	//----------------------Methods-----------------
-	/**
-	 * Method to get the question string
-	 * @return The question as a String
-	 */
 	public String getQuestion() {
 		return question;
 	}
 	
 	
-	/**
-	 * Method to see if a question is flagged
-	 * @return Boolean of if a question is flagged
-	 */
 	public boolean isFlagged() {
 		return flagged;
 	}
 	
 	
-	/**
-	 * Mathod to get this question's number
-	 * @return The question number of this question in the quiz
-	 */
 	public int getQuizQuestionNumber() {
 		return quizQuestionNumber;
 	}
@@ -192,30 +180,16 @@ public class MCQ extends MouseAdapter implements ActionListener{
 	}
 	
 	
-	/**
-	 * Checks if the user has inputted an answer
-	 * @return Boolean value of whether user has answered the question or not
-	 */
 	public boolean isAnswered() {
 		return !userAnswer.equals("");
 	}
 	
 	
-	/**
-	 * Checks if the user choice is correct
-	 * @return Boolean value of whether user was right or not
-	 */
 	public boolean isCorrect() {
 		return userAnswer.equals(answer);
 	}
 	
 	
-	/**
-	 * Creates a JPanel which includes GUI components to add to a JFrame to ask a multiple choice question
-	 * @return JPanel object to be added to the JFrame to pose a multiple choice question
-	 * @param questionNumber The question's number within the quiz
-	 * @param frame The JFrame upon which this JPanel will be added
-	 */
 	public JPanel createPanel(int questionNumber, JFrame frame) {
 		
 		//creates the JPanels for the user input, question, and the overall container

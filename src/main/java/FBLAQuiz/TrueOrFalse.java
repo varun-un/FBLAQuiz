@@ -34,7 +34,7 @@ import org.json.simple.parser.ParseException;
  * @author Varun Unnithan
  *
  */
-public class TrueOrFalse extends MouseAdapter implements ActionListener{
+public class TrueOrFalse extends MouseAdapter implements ActionListener, Question{
 		
 	//----------------Instance variables----------------
 	//Question variables
@@ -76,11 +76,11 @@ public class TrueOrFalse extends MouseAdapter implements ActionListener{
 		//read and store an array of all multiple choice questions
 		JSONObject database;
 		try {
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 		}
 		JSONArray fillInArray = (JSONArray) database.get("True or False");
 		

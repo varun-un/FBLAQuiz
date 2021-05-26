@@ -36,7 +36,7 @@ import org.json.simple.parser.ParseException;
  * @author Varun Unnithan
  *
  */
-public class MultipleSelect extends MouseAdapter implements ActionListener{
+public class MultipleSelect extends MouseAdapter implements ActionListener, Question {
 	
 	//----------------Instance variables----------------
 	//Question variables
@@ -51,7 +51,7 @@ public class MultipleSelect extends MouseAdapter implements ActionListener{
 	/** The List of the user's answers to the question */
 	private ArrayList<String> userAnswer;
 	/** Whether this question has been flagged for review or not */
-	boolean flagged;
+	private boolean flagged;
 	/** The question number of this question in the quiz */
 	private int quizQuestionNumber;
 	
@@ -84,11 +84,11 @@ public class MultipleSelect extends MouseAdapter implements ActionListener{
 		//read and store an array of all multiple select questions
 		JSONObject database;
 		try {
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 		}
 		JSONArray multipleSelectArray = (JSONArray) database.get("Multiple Select");
 		

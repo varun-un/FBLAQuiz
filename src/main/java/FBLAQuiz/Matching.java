@@ -44,7 +44,7 @@ import org.json.simple.parser.ParseException;
  * @author Varun Unnithan
  *
  */
-public class Matching extends MouseAdapter implements ActionListener{
+public class Matching extends MouseAdapter implements ActionListener, Question{
 		
 	//----------------Instance variables----------------
 	//Question variables
@@ -100,11 +100,11 @@ public class Matching extends MouseAdapter implements ActionListener{
 		//read and store an array of all multiple choice questions
 		JSONObject database;
 		try {
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/testQuestions.json")));
 		} 
 		catch (IOException | ParseException e) {
 			//Use backup database if exception occurs
-			database = (JSONObject)(QuizMenu.parser.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
+			database = (JSONObject)(QuizMenu.PARSER.parse(new FileReader("./JSONfiles/backup/testQuestions.json")));
 		}
 		JSONArray fillInArray = (JSONArray) database.get("Matching");
 		
@@ -134,28 +134,16 @@ public class Matching extends MouseAdapter implements ActionListener{
 	
 	
 	//---------------Methods-------------------
-	/**
-	 * Method to get the question string
-	 * @return The question as a String
-	 */
 	public String getQuestion() {
 		return question;
 	}
 	
 	
-	/**
-	 * Method to see if a question is flagged
-	 * @return Boolean of if a question is flagged
-	 */
 	public boolean isFlagged() {
 		return flagged;
 	}
 	
-	
-	/**
-	 * Mathod to get this question's number
-	 * @return The question number of this question in the quiz
-	 */
+
 	public int getQuizQuestionNumber() {
 		return quizQuestionNumber;
 	}
@@ -237,10 +225,6 @@ public class Matching extends MouseAdapter implements ActionListener{
 	}
 	
 	
-	/**
-	 * Checks if the user has inputted an answer
-	 * @return Boolean value of whether user has answered the question or not
-	 */
 	public boolean isAnswered() {
 		updateUserInput();
 		
@@ -253,24 +237,14 @@ public class Matching extends MouseAdapter implements ActionListener{
 		return false;
 	}
 	
-	
-	/**
-	 * Checks if the user's answer is correct
-	 * @return Boolean value of whether user is correct or not
-	 */
+
 	public boolean isCorrect() {
 		updateUserInput();
 		return userAnswerGroupB.equals(groupB);
 	}
 
 	
-	
-	/**
-	 * Creates a JPanel which includes GUI components to add to a JFrame to ask a matching question
-	 * @return JPanel object to be added to the JFrame to pose a matching question
-	 * @param questionNumber The question's number within the quiz
-	 * @param frame The JFrame upon which this JPanel will be added
-	 */
+
 	public JPanel createPanel(int questionNumber, final JFrame frame) {
 		
 		//creates the JPanels for the user input, question, and the overall container

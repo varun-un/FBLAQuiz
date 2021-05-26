@@ -191,12 +191,12 @@ public class ScoreReport {
 		//retreive the current database from the file
 		JSONArray database;
 		try {
-			database = (JSONArray) QuizMenu.parser.parse(new FileReader("./JSONfiles/scoreReports.json"));
+			database = (JSONArray) QuizMenu.PARSER.parse(new FileReader("./JSONfiles/scoreReports.json"));
 		} 
 		//use the backup database if unavailable
 		catch (IOException | ParseException e) {
 			try {
-				database = (JSONArray) QuizMenu.parser.parse(new FileReader("./JSONfiles/backup/scoreReports.json"));
+				database = (JSONArray) QuizMenu.PARSER.parse(new FileReader("./JSONfiles/backup/scoreReports.json"));
 			} 
 			//if backup database isn't available too, proceed as if the database were empty
 			catch (IOException | ParseException e1) {
