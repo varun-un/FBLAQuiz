@@ -312,9 +312,8 @@ public class ScoreReport {
 				contentStream.drawImage(correctIcon, 510, questionYCord - 26);
 			}
 			
-			//edit incorrect icon (more printable)
 			
-			
+			//display user answer
 			contentStream.beginText();
 			questionYCord -= questionReports.get(i).getQuestion().length() / 64 * 15 + 25;
 			contentStream.newLineAtOffset(60, questionYCord);
@@ -325,10 +324,12 @@ public class ScoreReport {
 			
 		    String userAnswer = questionReports.get(i).getUserAnswer().get(0);
 		    
+		    //check if unanswered
 		    if ((questionReports.get(i).getUserAnswer().size() == 1) && (questionReports.get(i).getUserAnswer().get(0).equals(""))) {
 				userAnswer = "Unanswered";
 			}
 		    
+		    //write the user answer
 		    for (int c = 0; c < questionReports.get(i).getUserAnswer().size(); c++) {
 		    	
 		    	wrapText(contentStream, userAnswer, 
@@ -342,9 +343,7 @@ public class ScoreReport {
 		    contentStream.endText();
 		    
 		    
-		    
-		    
-		    
+		    //display correct answer
 		    contentStream.beginText();
 			contentStream.newLineAtOffset(335, questionYCord);
 			
@@ -356,6 +355,7 @@ public class ScoreReport {
 			//count the number of lines the correct answer will take up
 			int lineCount = 0;
 		    
+			//write the correct answer
 		    for (int c = 0; c < questionReports.get(i).getCorrectAnswer().size(); c++) {
 		    	
 		    	lineCount += wrapText(contentStream, questionReports.get(i).getCorrectAnswer().get(c), 
@@ -378,6 +378,7 @@ public class ScoreReport {
 			contentStream.lineTo(132, questionYCord - 2);
 			contentStream.stroke();
 		    
+			//go to next line
 		    questionYCord -= lineCount * 14 + 50;
 		}
 		
@@ -1022,14 +1023,14 @@ public class ScoreReport {
 		 */
 		public void animateLine() {
 			
-			//triggers a chage in the line's position every 50 milliseconds
-			Timer animateLine = new Timer(50, new ActionListener() {
+			//triggers a chage in the line's position every 16 milliseconds
+			Timer animateLine = new Timer(30, new ActionListener() {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
-					//change the line's width by 150 pixels
-					lineWidth += 150;
+					//change the line's width by 50 pixels
+					lineWidth += 50;
 					repaint();
 					
 					//if the line is the width of the window, stop changing its width
@@ -1096,14 +1097,14 @@ public class ScoreReport {
 		 */
 		public void fadeIn() {
 			
-			//fire an event to change the alpha every 60 milliseconds
-			Timer fadeTimer = new Timer(60, new ActionListener() {
+			//fire an event to change the alpha every 16 milliseconds
+			Timer fadeTimer = new Timer(16, new ActionListener() {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
 					//increase the alpha value
-					setAlpha(alpha + .15f);
+					setAlpha(alpha + .05f);
 					
 					//stop the Timer when the alpha equals 1
 					if (alpha >= 1f) {
@@ -1168,14 +1169,14 @@ public class ScoreReport {
 		 */
 		public void fadeIn() {
 			
-			//fire an event to change the alpha every 80 milliseconds
-			Timer fadeTimer = new Timer(80, new ActionListener() {
+			//fire an event to change the alpha every 16 milliseconds
+			Timer fadeTimer = new Timer(16, new ActionListener() {
 
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					
 					//increase the alpha value
-					setAlpha(alpha + .25f);
+					setAlpha(alpha + .05f);
 					
 					//stop the Timer when the alpha equals 1
 					if (alpha >= 1f) {

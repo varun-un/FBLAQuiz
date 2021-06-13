@@ -117,28 +117,17 @@ public class Quiz extends JPanel implements ActionListener{
 		multipleSelect = new MultipleSelect();
 		trueOrFalse = new TrueOrFalse();
 		
-		//randomizes the order of questions
-		ArrayList<Integer> order = new ArrayList<Integer>(Arrays.asList(0, 1, 2, 3, 4));
-		Collections.shuffle(order);
+		//creates ArrayList for the questions and shuffle them
+		ArrayList<Question> questions = new ArrayList<Question>(Arrays.asList(multipleChoice, fillInBlank, matching, multipleSelect,
+				trueOrFalse));
+		Collections.shuffle(questions);
 		
-		//creates an ArrayList of JPanels for the questions
-		ArrayList<JPanel> panels = new ArrayList<JPanel>();
-		for (int i = 0; i < order.size(); i++) {
-			panels.add(null);
-		}
-		
-		panels.set(order.get(0), multipleChoice.createPanel(order.get(0) + 1, frame));
-		panels.set(order.get(1), fillInBlank.createPanel(order.get(1) + 1, frame));
-		panels.set(order.get(2), matching.createPanel(order.get(2) + 1, frame));
-		panels.set(order.get(3), multipleSelect.createPanel(order.get(3) + 1, frame));
-		panels.set(order.get(4), trueOrFalse.createPanel(order.get(4) + 1, frame));
-		
-		
-		//adds the question's JPanels to the questionPanel
-		for (int i = 0; i < panels.size(); i++) {
-			questionPanel.add(panels.get(i));
+		//creates the panels for each of the questions and adds it to the card panel
+		for (int i = 0; i < questions.size(); i++) {
+			questionPanel.add(questions.get(i).createPanel(i + 1, frame));
 		}
 		currentQuestionNumber = 1;
+		
 		
 		//sets up the next and back buttons
 		nextButton = new JButton();
