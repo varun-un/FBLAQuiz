@@ -64,6 +64,8 @@ public class Quiz extends JPanel implements ActionListener{
 	private MultipleSelect multipleSelect;
 	/** A random true or false question */
 	private TrueOrFalse trueOrFalse;
+	
+	private ArrayList<Question> questions;
 
 	/** The panel on which the question object's panels will be placed */
 	private JPanel questionPanel;
@@ -111,14 +113,14 @@ public class Quiz extends JPanel implements ActionListener{
 		questionPanel.setLayout(questionCards);
 		
 		//create the five different question objects
-		multipleChoice = new MCQ();
-		fillInBlank = new FillInBlank();
-		matching = new Matching();
-		multipleSelect = new MultipleSelect();
-		trueOrFalse = new TrueOrFalse();
+		MCQ multipleChoice = new MCQ();
+		FillInBlank fillInBlank = new FillInBlank();
+		Matching matching = new Matching();
+		MultipleSelect multipleSelect = new MultipleSelect();
+		TrueOrFalse trueOrFalse = new TrueOrFalse();
 		
 		//creates ArrayList for the questions and shuffle them
-		ArrayList<Question> questions = new ArrayList<Question>(Arrays.asList(multipleChoice, fillInBlank, matching, multipleSelect,
+		questions = new ArrayList<Question>(Arrays.asList(multipleChoice, fillInBlank, matching, multipleSelect,
 				trueOrFalse));
 		Collections.shuffle(questions);
 		
@@ -271,47 +273,11 @@ public class Quiz extends JPanel implements ActionListener{
 
 	//-----------------Methods--------------
 	/**
-	 * Gets the multipleChoice question
-	 * @return the multipleChoice question
+	 * Gets the Quiz's question objects
+	 * @return An ArrayList of the Quiz's questions, in order
 	 */
-	public MCQ getMultipleChoice() {
-		return multipleChoice;
-	}
-
-
-	/**
-	 * Gets the fillInBlank question
-	 * @return the fillInBlank question
-	 */
-	public FillInBlank getFillInBlank() {
-		return fillInBlank;
-	}
-
-
-	/**
-	 * Gets the matching question
-	 * @return the matching question
-	 */
-	public Matching getMatching() {
-		return matching;
-	}
-
-
-	/**
-	 * Gets the multipleSelect question
-	 * @return the multipleSelect question
-	 */
-	public MultipleSelect getMultipleSelect() {
-		return multipleSelect;
-	}
-
-
-	/**
-	 * Gets the trueOrFalse question
-	 * @return the trueOrFalse question
-	 */
-	public TrueOrFalse getTrueOrFalse() {
-		return trueOrFalse;
+	public ArrayList<Question> getQuestions() {
+		return questions;
 	}
 	
 	
@@ -376,17 +342,11 @@ public class Quiz extends JPanel implements ActionListener{
 				
 				//find how many questions have already been answered
 				int numberAnswered = 0;
-				
-				if (multipleChoice.isAnswered())
-					numberAnswered++; 
-				if (fillInBlank.isAnswered())
-					numberAnswered++;
-				if (matching.isAnswered())
-					numberAnswered++;
-				if (multipleSelect.isAnswered())
-					numberAnswered++;
-				if (trueOrFalse.isAnswered())
-					numberAnswered++;
+				for (int i = 0; i < questions.size(); i++) {
+					if (questions.get(i).isAnswered()) {
+						numberAnswered++;
+					}
+				}
 				
 				//calculate by how much the bar needs to change
 				int steps = 40 * numberAnswered - progressBar.getValue();
@@ -562,6 +522,7 @@ public class Quiz extends JPanel implements ActionListener{
 				cancel.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						//close the popup when clicked
 						JOptionPane.getRootFrame().dispose();	
 					}
 				});
@@ -574,30 +535,14 @@ public class Quiz extends JPanel implements ActionListener{
 				ArrayList<Integer> blankQuestions = new ArrayList<Integer>();
 				
 				//checks to see which questions are flagged or unanswered
-				if (multipleChoice.isFlagged())
-					flaggedQuestions.add(multipleChoice.getQuizQuestionNumber()); 
-				else if (!multipleChoice.isAnswered())
-					blankQuestions.add(multipleChoice.getQuizQuestionNumber()); 
-				
-				if (fillInBlank.isFlagged())
-					flaggedQuestions.add(fillInBlank.getQuizQuestionNumber());
-				else if (!fillInBlank.isAnswered())
-					blankQuestions.add(fillInBlank.getQuizQuestionNumber()); 
-				
-				if (matching.isFlagged())
-					flaggedQuestions.add(matching.getQuizQuestionNumber());
-				else if (!matching.isAnswered())
-					blankQuestions.add(matching.getQuizQuestionNumber()); 
-				
-				if (multipleSelect.isFlagged())
-					flaggedQuestions.add(multipleSelect.getQuizQuestionNumber());
-				else if (!multipleSelect.isAnswered())
-					blankQuestions.add(multipleSelect.getQuizQuestionNumber()); 
-				
-				if (trueOrFalse.isFlagged())
-					flaggedQuestions.add(trueOrFalse.getQuizQuestionNumber());
-				else if (!trueOrFalse.isAnswered())
-					blankQuestions.add(trueOrFalse.getQuizQuestionNumber()); 
+				for (int i = 0; i < questions.size(); i++) {
+					if (questions.get(i).isFlagged()) {
+						flaggedQuestions.add(questions.get(i).getQuizQuestionNumber());
+					}
+					if (questions.get(i).isAnswered()) {
+						blankQuestions.add(questions.get(i).getQuizQuestionNumber());
+					}
+				}
 				
 				
 				String numberFlaggedUnanswered = "";
@@ -704,7 +649,6 @@ public class Quiz extends JPanel implements ActionListener{
 
 	/**
 	 * A JPanel with a custom background for displaying the quiz's results
-	 * @author Varun Unnithan
 	 */
 	private class ResultsPanel extends JPanel {
 		

@@ -36,7 +36,7 @@ public class QuestionReport implements Comparable<QuestionReport>{
 
 	
 	
-	//-----------Constructors-------------
+	//-----------Constructors-------------		
 	/**
 	 * Creates a Question Report object for a multiple choice question
 	 * @param mcq The multiple choice question for which to generate a report

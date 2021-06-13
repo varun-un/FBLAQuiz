@@ -86,17 +86,29 @@ public class ScoreReport {
 	 */
 	public ScoreReport (Quiz quiz) {
 	
+		// gets and sets up the questions and their question reports
 		questionReports = new ArrayList<QuestionReport>();
+		ArrayList<Question> questions = quiz.getQuestions();
 		
-		//create question reports for each of the quiz's questions
-		questionReports.add(new QuestionReport(quiz.getMultipleChoice()));
-		questionReports.add(new QuestionReport(quiz.getFillInBlank()));
-		questionReports.add(new QuestionReport(quiz.getMultipleSelect()));
-		questionReports.add(new QuestionReport(quiz.getMatching()));
-		questionReports.add(new QuestionReport(quiz.getTrueOrFalse()));
-		
-		//sort the question reports by the question number
-		Collections.sort(questionReports);
+		for (int i = 0; i < questions.size(); i++) {
+			
+			//check which question type each question is and create the appropriate question report
+			if (questions.get(i) instanceof MCQ) {
+				questionReports.add(new QuestionReport((MCQ)(questions.get(i))));
+			}
+			else if (questions.get(i) instanceof MultipleSelect) {
+				questionReports.add(new QuestionReport((MultipleSelect)(questions.get(i))));
+			}
+			else if (questions.get(i) instanceof FillInBlank) {
+				questionReports.add(new QuestionReport((FillInBlank)(questions.get(i))));
+			}
+			else if (questions.get(i) instanceof Matching) {
+				questionReports.add(new QuestionReport((Matching)(questions.get(i))));
+			}
+			else{
+				questionReports.add(new QuestionReport((TrueOrFalse)(questions.get(i))));
+			}
+		}
 		
 		//record the number of correct questions
 		score = 0;
