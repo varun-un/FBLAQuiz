@@ -347,6 +347,7 @@ public class Quiz extends JPanel implements ActionListener{
 						numberAnswered++;
 					}
 				}
+
 				
 				//calculate by how much the bar needs to change
 				int steps = 40 * numberAnswered - progressBar.getValue();
@@ -539,7 +540,7 @@ public class Quiz extends JPanel implements ActionListener{
 					if (questions.get(i).isFlagged()) {
 						flaggedQuestions.add(questions.get(i).getQuizQuestionNumber());
 					}
-					if (questions.get(i).isAnswered()) {
+					if (!(questions.get(i).isAnswered())) {
 						blankQuestions.add(questions.get(i).getQuizQuestionNumber());
 					}
 				}
