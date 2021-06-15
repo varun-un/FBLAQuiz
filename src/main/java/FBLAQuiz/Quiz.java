@@ -54,17 +54,7 @@ public class Quiz extends JPanel implements ActionListener{
 	
 	
 	//-------------Instance Variables-----------
-	/** A random multiple choice question */
-	private MCQ multipleChoice;
-	/** A random fill-in-the-blank question */
-	private FillInBlank fillInBlank;
-	/** A random matching question */
-	private Matching matching;
-	/** A random multiple select question */
-	private MultipleSelect multipleSelect;
-	/** A random true or false question */
-	private TrueOrFalse trueOrFalse;
-	
+	/** An ArrayList of all the question objects in this quiz */
 	private ArrayList<Question> questions;
 
 	/** The panel on which the question object's panels will be placed */

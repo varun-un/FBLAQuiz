@@ -167,9 +167,20 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		directions.setFont(new Font("Trebuchet MS", Font.ITALIC, 35));
 		directions.setHorizontalAlignment(JLabel.CENTER);
 		
+		//Parse the score reports database to create the list of score reports
+		JSONArray database;
+		try {
+			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/scoreReports.json")));
+		} 
+		catch (IOException | ParseException e) {
+			//Use backup database if exception occurs
+			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/backup/scoreReports.json")));
+		}
+		int numberOfReports = database.size();
+		
 		//create the panel where the score reports will be displayed and sets its preferred size
 		JPanel reportsPanel = new JPanel();
-		reportsPanel.setPreferredSize(new Dimension(900,2000));
+		reportsPanel.setPreferredSize(new Dimension(900, 70 + 58 * (numberOfReports - 1)));
 		reportsPanel.setOpaque(false);
 		SpringLayout scrollLayout = new SpringLayout();
 		reportsPanel.setLayout(scrollLayout);
@@ -218,20 +229,11 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		});
 		
 		
-		//Parse the score reports database
-		JSONArray database;
-		try {
-			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/scoreReports.json")));
-		} 
-		catch (IOException | ParseException e) {
-			//Use backup database if exception occurs
-			database = (JSONArray)(PARSER.parse(new FileReader("./JSONfiles/backup/scoreReports.json")));
-		}
 		//an ArrayList for all of the report buttons
 		ArrayList<JButton> buttonsList = new ArrayList<JButton>();
 		
-		//iterate through and display buttons for the last 34 score reports 
-		for (int i = 0; i < 34; i++) {
+		//iterate through and display buttons for the score reports 
+		for (int i = 0; i < numberOfReports; i++) {
 			
 			//gets the report's data
 			JSONObject reportObj = (JSONObject) database.get(i);
@@ -256,8 +258,8 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 	                
 	    			//sets the String to display, as the date and time + the score out of 5
 	                String date = (dateAndTime.substring(0, 16)).trim() + " at " + ScoreReport.get12hrTime(dateAndTime);
-	                g2.drawString(date, 55, 40);
-	                g2.drawString("Score: " + score + " / 5", 580, 40);
+	                g2.drawString(date, (int)(frame.getWidth() / 2.0 - 395), 40);
+	                g2.drawString("Score: " + score + " / 5", (int)(frame.getWidth() / 2.0 + 130), 40);
 	            }
 			};
 			//set up the rest of the button
@@ -384,7 +386,7 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		JLabel reportCount = new JLabel();
 		reportCount.setFont(new Font("Trebuchet MS", Font.PLAIN, 22));
 		reportCount.setForeground(new Color(25,25,25));
-		reportCount.setText("34 reports");
+		reportCount.setText(numberOfReports + " reports");
 		reportCount.setHorizontalAlignment(JLabel.LEFT);
 		
 		//add the components to the overall panel

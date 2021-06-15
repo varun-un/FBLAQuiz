@@ -21,7 +21,6 @@ import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 
 import javax.swing.BorderFactory;
@@ -404,7 +403,7 @@ public class ScoreReport {
 	
 	
 	/**
-	 * Writes text onto a PDF from a content stream with the text wrapped around the edgs of the page
+	 * Helper method to write text onto a PDF from a content stream with the text wrapped around the edges of the page
 	 * @param contentStream The PDPageContentStream from which to write through
 	 * @param text The text that is to be written and wrapped
 	 * @param pdfFont The font for the text that is to be wrapped
