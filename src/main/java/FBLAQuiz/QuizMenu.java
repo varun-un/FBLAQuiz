@@ -295,7 +295,7 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 					
 					//creates a ScoreReport and a panel for it for the report that is clicked
 					ScoreReport thisReport = new ScoreReport(reportObj);
-					JPanel scorePanel = thisReport.createPanel(1000, listScoresPanel.getSize(), returnAction, 
+					JPanel scorePanel = thisReport.createPanel(50, listScoresPanel.getSize(), returnAction, 
 							"Return to the previous page");
 					
 					//adds the score report panel to the overall panel

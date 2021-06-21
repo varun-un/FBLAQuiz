@@ -33,6 +33,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.SpringLayout;
 import javax.swing.Timer;
+import javax.swing.UIManager;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -716,6 +717,9 @@ public class ScoreReport {
 				}
 			});
 			
+			//set the background color of dialog box
+			UIManager.put("OptionPane.background", new Color(25,25,25));		
+			UIManager.put("Panel.background", new Color(25,25,25));
 			
 			//creates the JPanel to display the questions, with a set preferred size
 			questionsPanel = new JPanel(){
@@ -1115,7 +1119,7 @@ public class ScoreReport {
 				public void actionPerformed(ActionEvent e) {
 					
 					//increase the alpha value
-					setAlpha(alpha + .05f);
+					setAlpha(alpha + .2f);
 					
 					//stop the Timer when the alpha equals 1
 					if (alpha >= 1f) {
@@ -1187,7 +1191,7 @@ public class ScoreReport {
 				public void actionPerformed(ActionEvent e) {
 					
 					//increase the alpha value
-					setAlpha(alpha + .05f);
+					setAlpha(alpha + .2f);
 					
 					//stop the Timer when the alpha equals 1
 					if (alpha >= 1f) {
