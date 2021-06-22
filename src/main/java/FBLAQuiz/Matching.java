@@ -185,7 +185,8 @@ public class Matching extends MouseAdapter implements ActionListener, Question{
 	
 	
 	/**
-	 * Updates the userAnswerGroupB ArrayList, based off of the user input
+	 * Updates the userAnswerGroupB ArrayList, based off of the user input. Called every time the 
+	 * user input is updated.
 	 */	
 	private void updateUserInput() {
 		
@@ -194,9 +195,9 @@ public class Matching extends MouseAdapter implements ActionListener, Question{
 		//sort the destinations ArrayList by the Point's y-value, descending
 		Collections.sort(destinations, new Comparator<Point>() {
 
-			public int compare(Point o1, Point o2) {
+			public int compare(Point p1, Point p2) {
 				//return 1 if o1 is higher than o2, -1 if o2 is higher, and 0 if they're equal
-				return o1.getY() > o2.getY() ? 1 : (o1.getY() < o2.getY()) ? -1 : 0;
+				return p1.getY() > p2.getY() ? 1 : (p1.getY() < p2.getY()) ? -1 : 0;
 			}
 		});
 		

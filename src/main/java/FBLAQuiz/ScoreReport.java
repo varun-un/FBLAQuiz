@@ -33,7 +33,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 import javax.swing.SpringLayout;
 import javax.swing.Timer;
-import javax.swing.UIManager;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
@@ -415,20 +414,26 @@ public class ScoreReport {
 	 */
 	private int wrapText(PDPageContentStream contentStream, String text, PDFont pdfFont, float fontSize, float wrapWidth) throws IOException {
 		
+		//initializes the line
 		contentStream.setLeading(fontSize * 1.5);
 		int lineCount = 0;
  
-	    ArrayList<String> lines = new ArrayList<String>();
-	    int lastSpace = -1;
-	    while (text.length() > 0)
+		//checks where in the string should the line end
+	    ArrayList<String> lines = new ArrayList<String>();		//each element in the list is the text of a new line
+	    int lastSpace = -1;	
+	    while (text.length() > 0)								//for each line, removes that text from the string until none left
 	    {
+	    	//finds occurence next whitespace
 	        int spaceIndex = text.indexOf(' ', lastSpace + 1);
 	        if (spaceIndex < 0)
 	            spaceIndex = text.length();
 	        String subString = text.substring(0, spaceIndex);
-	        float size = fontSize * pdfFont.getStringWidth(subString) / 1000;
+	        float size = fontSize * pdfFont.getStringWidth(subString) / 1000;		//gets the width of the word to this whitespace
+	        
+	        //decides how to act based on the length of the found string
 	        if (size > wrapWidth)
 	        {
+	        	//saves the current line to the List and moves on to calculate the next
 	            if (lastSpace < 0)
 	                lastSpace = spaceIndex;
 	            subString = text.substring(0, lastSpace);
@@ -438,16 +443,19 @@ public class ScoreReport {
 	        }
 	        else if (spaceIndex == text.length())
 	        {
+	        	//adds the text to the List and ends the loop (if last line)
 	            lines.add(text);
 	            text = "";
 	        }
 	        else
 	        {
+	        	//continues the loop onto the next word to find the line end
 	            lastSpace = spaceIndex;
 	        }
 	        
 	    }
 	    
+	    //writes the text to the content stream
 	    contentStream.setFont(pdfFont, fontSize);
         for (String line: lines)
         {
@@ -717,9 +725,6 @@ public class ScoreReport {
 				}
 			});
 			
-			//set the background color of dialog box
-			UIManager.put("OptionPane.background", new Color(25,25,25));		
-			UIManager.put("Panel.background", new Color(25,25,25));
 			
 			//creates the JPanel to display the questions, with a set preferred size
 			questionsPanel = new JPanel(){
@@ -968,12 +973,12 @@ public class ScoreReport {
 				exportButton.fadeIn();
 				exitButton.fadeIn();
 				
-				//sets up the next Timer to trigger the displaying of the dividing line in 600 milliseconds
+				//sets up the next Timer to trigger the displaying of the dividing line in 800 milliseconds
 				lineDelay = new Timer(800, ScorePanel.this);
 				lineDelay.start();
 				lineDelay.setRepeats(false);
 				
-				//sets up the next Timer to trigger the displaying of the questions' panel in 1250 milliseconds
+				//sets up the next Timer to trigger the displaying of the questions' panel in 1500 milliseconds
 				questionsDelay = new Timer(1500, ScorePanel.this);
 				questionsDelay.start();
 				questionsDelay.setRepeats(false);

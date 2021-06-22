@@ -86,14 +86,14 @@ public class CustomScrollUI extends BasicScrollBarUI {
      */
     public void fadeIn() {
     	
-    	//fire an event to change the alpha every 35 milliseconds
+    	//fire an event to change the alpha
 		Timer fadeTimer = new Timer(35, new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
 				//increase the alpha value
-				alpha += 25;
+				alpha += 50;
 				
 				//stop the Timer when the alpha equals 1
 				if (alpha >= 255) {

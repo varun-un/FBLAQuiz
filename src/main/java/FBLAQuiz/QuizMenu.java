@@ -112,6 +112,10 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		//creates and displays the panel for the home screen onto the window
 		showHomeScreen();
 		
+		//set the default background color of a dialog box
+		UIManager.put("OptionPane.background", new Color(25,25,25));		
+		UIManager.put("Panel.background", new Color(25,25,25));
+		
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		frame.setIconImage((new ImageIcon("./Icons/FBLA Quiz Icon.png")).getImage());
@@ -1120,7 +1124,7 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//if it is meant to vrify the password
+				//if it is meant to verify the password
 				if (verifyPassword) {
 					
 					//if the password is right, move on, otherwise display the incorrect text
@@ -1358,7 +1362,7 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 		
 		/**
 		 * Creates a GradientPanel object, included with all the home menu's components
-		 * @param any Passing any object or type causes the GradientPanel to act as a start menu
+		 * @param any Passing any object or type causes the GradientPanel to act as the start menu
 		 */
 		public GradientPanel(Object any) {
 			cyanPoint = new Point(900, 750);
@@ -1416,7 +1420,7 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 			scoresButton.addMouseListener(QuizMenu.this);
 			scoresButton.addActionListener(QuizMenu.this);
 			
-			//sets up the button to view the scores
+			//sets up the button to view the questions database
 			questionsButton = new JButton();
 			questionsButton.setIcon(new ImageIcon("./Icons/View Questions Button.png"));
 			questionsButton.setPressedIcon(new ImageIcon("./Icons/View Questions Button Selected.png"));
@@ -1429,6 +1433,52 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 			questionsButton.addMouseListener(QuizMenu.this);
 			questionsButton.addActionListener(QuizMenu.this);
 			
+			//sets up the help button
+			JButton helpButton = new JButton();
+			helpButton.setIcon(new ImageIcon("./Icons/Help Menu Button.png"));
+			helpButton.setPressedIcon(new ImageIcon("./Icons/Help Menu Button Selected.png"));
+			helpButton.setRolloverIcon(new ImageIcon("./Icons/Help Menu Button Rollover.png"));
+			helpButton.setOpaque(false);
+			helpButton.setContentAreaFilled(false);
+			helpButton.setBorderPainted(false);
+			helpButton.setFocusable(false);
+			helpButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+			helpButton.addMouseListener(new MouseAdapter() {
+				
+				@Override
+				public void mouseEntered(MouseEvent e) {
+					buttonDesc.setText("Instructions for how to use the application");
+				}
+				@Override
+				public void mouseExited(MouseEvent e) {
+					buttonDesc.setText("");
+				}
+			});
+			helpButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					JLabel instructionsText = new JLabel();
+					instructionsText.setFont(new Font("Trebuchet MS", Font.PLAIN, 16));
+					instructionsText.setForeground(Color.LIGHT_GRAY);
+					instructionsText.setText("<html><body style='width: 600px;'><p style=\"text-align: center;\"><strong>To Take a Quiz:</strong></p>\r\n"
+							+ "<ol>\r\n"
+							+ "<li style=\"text-align: left;\">Click the Start Quiz button and confirm to start the quiz.</li>\r\n"
+							+ "<li style=\"text-align: left;\">Answer the quiz's five questions to the best of your ability, following the instructions provided in light grey. To move between questions, use the next and back buttons at the top corners. The icons on the righthand side provide useful tools to help answer the questions.</li>\r\n"
+							+ "<li style=\"text-align: left;\">Once completed, submit the quiz by pressing submit and confirming.</li>\r\n"
+							+ "<li style=\"text-align: left;\">Your results will be shown, which you can then save to a PDF by clicking the top right button, or return to the main menu by clicking the top left button.</li>\r\n"
+							+ "</ol>\r\n"
+							+ "<p style=\"text-align: center;\"><strong>To View Previous Scores:</strong></p>\r\n"
+							+ "<ol>\r\n"
+							+ "<li style=\"text-align: left;\">Click the View Scores button which will bring you to a list of all the previous quiz's scores, organized by date they were taken.</li>\r\n"
+							+ "<li style=\"text-align: left;\">Clicking the graph button in the top right will show a graph of the previous 20 quizzes taken.</li>\r\n"
+							+ "<li style=\"text-align: left;\">To view a quiz's report, scroll to and click on the quiz you want to see, and its results page will show. You can save these results as a PDF by clicking the top right button.</li>\r\n"
+							+ "<li style=\"text-align: left;\">The button at the top left will return you to the previous page.</li>\r\n"
+							+ "</ol></body></html>");
+					JOptionPane.showMessageDialog(null, instructionsText, "Instructions", JOptionPane.PLAIN_MESSAGE);
+				}
+			});
+			
 			
 			//adds the components to the panel
 			this.add(fblaLabel);
@@ -1437,6 +1487,7 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 			this.add(scoresButton);
 			this.add(questionsButton);
 			this.add(buttonDesc);
+			this.add(helpButton);
 			
 			
 			//sets the position of the labels for the title on the panel
@@ -1467,6 +1518,12 @@ public class QuizMenu extends MouseAdapter implements ActionListener{
 			homeLayout.putConstraint(SpringLayout.EAST, questionsButton, -175, SpringLayout.EAST, this);
 			homeLayout.putConstraint(SpringLayout.WEST, questionsButton, 175, SpringLayout.WEST, this);
 			homeLayout.putConstraint(SpringLayout.SOUTH, questionsButton, 80, SpringLayout.NORTH, questionsButton);
+			
+			//sets the position of the help button
+			homeLayout.putConstraint(SpringLayout.NORTH, helpButton, -120, SpringLayout.SOUTH, this);
+			homeLayout.putConstraint(SpringLayout.EAST, helpButton, 120, SpringLayout.WEST, this);
+			homeLayout.putConstraint(SpringLayout.WEST, helpButton, 30, SpringLayout.WEST, this);
+			homeLayout.putConstraint(SpringLayout.SOUTH, helpButton, -30, SpringLayout.SOUTH, this);
 			
 			//sets the position of the button description label
 			homeLayout.putConstraint(SpringLayout.SOUTH, buttonDesc, -10, SpringLayout.SOUTH, this);

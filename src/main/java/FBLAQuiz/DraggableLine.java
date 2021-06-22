@@ -256,7 +256,7 @@ public class DraggableLine extends JComponent{
 				//check to see if there is a nearby destination point
 				for (Point destination: destinationPoints) {
 					
-					if (draggedPoint.distance(destination) <= 25) {
+					if (draggedPoint.distance(destination) <= 25) {			//if distance < 25, snap to the destination
 						draggedPoint = destination;
 						hasSnapped = true;
 						break;
